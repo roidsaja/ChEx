@@ -21,8 +21,12 @@
 
 <section>
 	{#each filteredPokemon as pkmn}
-		<h1>{pkmn.name}</h1>
-		<img alt={pkmn.name} src={pkmn.image} />
+		<div>
+			<a href={`/pokemon/${pkmn.id}`}>
+				<h1>{pkmn.name}</h1>
+				<img alt={pkmn.name} src={pkmn.image} />
+			</a>
+		</div>
 	{/each}
 </section>
 
@@ -33,9 +37,5 @@
 		justify-content: center;
 		align-items: center;
 		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
 	}
 </style>
