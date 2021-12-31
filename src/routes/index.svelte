@@ -14,14 +14,14 @@
 </script>
 
 <svelte:head>
-	<title>Svelte Pokedex</title>
+	<title>Svelte ChEx</title>
 </svelte:head>
 
 <input type="text" placeholder="Search a Pokemon" bind:value={search} />
 
 <section>
 	{#each filteredPokemon as pkmn}
-		<div>
+		<div class="card">
 			<a href={`/pokemon/${pkmn.id}`}>
 				<h1>{pkmn.name}</h1>
 				<img alt={pkmn.name} src={pkmn.image} />
@@ -33,9 +33,26 @@
 <style>
 	section {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.card {
+		display: flex;
+		margin-right: 0.5rem;
+		margin-left: 0.5rem;
+		margin-top: 0.5rem;
+		border: 1px solid #ffffff;
+		border-radius: 10px;
+		background: white;
+	}
+
+	.card > a > img {
+		display: flex;
 		justify-content: center;
 		align-items: center;
-		flex: 1;
+		margin: 0 auto;
 	}
 </style>
