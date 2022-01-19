@@ -35,9 +35,9 @@
 				<figure>
 					<img alt={pkmn.name} src={pkmn.image} />
 				</figure>
-				<h1 class="card-title m-auto">{pkmn.name}</h1>
+				<h1 class="card-title m-auto text-base">{pkmn.name.toUpperCase()}</h1>
 
-				<div class="card-actions">
+				<div class="card-actions m-auto">
 					<a href={`/pokemon/${pkmn.id}`} class="btn btn-primary">More Info</a>
 				</div>
 			</a>
