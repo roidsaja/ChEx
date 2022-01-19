@@ -14,45 +14,33 @@
 </script>
 
 <svelte:head>
-	<title>Svelte ChEx</title>
+	<title>ChEx</title>
 </svelte:head>
 
-<input type="text" placeholder="Search a Pokemon" bind:value={search} />
+<div class="form-control">
+	<div class="relative justify-center">
+		<input
+			type="text"
+			class="w-full pr-16 input input-primary input-bordered"
+			placeholder="Search a Pokemon"
+			bind:value={search}
+		/>
+	</div>
+</div>
 
-<section>
+<section class="flex flex-row justify-center items-center flex-wrap">
 	{#each filteredPokemon as pkmn}
-		<div class="card">
-			<a href={`/pokemon/${pkmn.id}`}>
-				<h1>{pkmn.name}</h1>
-				<img alt={pkmn.name} src={pkmn.image} />
+		<div class="card image-full m-7 cursor-pointer">
+			<a href={`/pokemon/${pkmn.id}`} class="card-body">
+				<figure>
+					<img alt={pkmn.name} src={pkmn.image} />
+				</figure>
+				<h1 class="card-title m-auto text-base">{pkmn.name.toUpperCase()}</h1>
+
+				<div class="card-actions m-auto">
+					<a href={`/pokemon/${pkmn.id}`} class="btn btn-primary">More Info</a>
+				</div>
 			</a>
 		</div>
 	{/each}
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		flex-wrap: wrap;
-	}
-
-	.card {
-		display: flex;
-		margin-right: 0.5rem;
-		margin-left: 0.5rem;
-		margin-top: 0.5rem;
-		border: 1px solid #ffffff;
-		border-radius: 10px;
-		background: white;
-	}
-
-	.card > a > img {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin: 0 auto;
-	}
-</style>
