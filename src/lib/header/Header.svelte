@@ -1,75 +1,17 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 </script>
 
 <header>
-	<nav>
-		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
-		</ul>
+	<nav class="navbar mb-2 bg-neutral text-neutral-content">
+		<div class="navbar-start px-2 mx-2">
+			<span class="text-lg font-bold"> ChEx </span>
+		</div>
+		<div class="navbar-center flex-1 px-2 mx-2" />
+		<div class="navbar-end">
+			<div class="items-stretch lg:flex">
+				<a class="btn btn-ghost btn-sm rounded-btn" sveltekit:prefetch href="/">Home</a>
+				<a class="btn btn-ghost btn-sm rounded-btn" sveltekit:prefetch href="/about"> About </a>
+			</div>
+		</div>
 	</nav>
 </header>
-
-<style>
-	header {
-		display: flex;
-		justify-content: center;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li.active::before {
-		--size: 6px;
-		--accent-color: #8134c9;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
-	}
-
-	nav a {
-		--heading-color: #8134c9;
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--accent-color);
-	}
-</style>
